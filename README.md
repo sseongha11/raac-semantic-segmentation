@@ -2,23 +2,8 @@
 
 # RAAC Semantic Segmentation
 
-## Contents
-- [Loughborough University RAAC Team](#loughborough-university-raac-team)
-- [Dataset](#dataset)
-- [Dependencies](#dependencies)
-- [Training](#training)
-- [Inference](#inference)
-- [Evaluation](#evaluation)
-- [Acknowledgements](#acknowledgements)
-- [Citation](#citation)
-- [License](#license)
-
-## Loughborough University RAAC Team
-- [Professor Chris Goodier](https://www.lboro.ac.uk/departments/abce/staff/chris-goodier/)
-- [Professor Christopher Gorse](https://www.lboro.ac.uk/departments/abce/staff/christopher-gorse/)
-- [Professor Sergio Cavalaro](https://www.lboro.ac.uk/departments/abce/staff/sergio-cavalaro/)
-- [Dr Karen Blay](https://www.lboro.ac.uk/departments/abce/staff/karen-blay/)
-- [Seongha Hwang](https://www.lboro.ac.uk/departments/abce/staff/seongha-hwang/)
+## Overview
+This project, developed by [Seongha Hwang](https://www.linkedin.com/in/seongha-hwang-a478a068/) at Loughborough University, presents a sophisticated Crack Detection Model. The model is based on various semantic segmantation deep learning architectures. It's designed for efficient and accurate detection and segmentation of cracks in surfaces or materials.
 
 ## Dataset
 
