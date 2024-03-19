@@ -31,12 +31,15 @@ EPOCHS = 80
 INIT_LR = 1e-4
 TH = 0.5
 
-# define loss function
+# Define loss function
 LOSS = su.losses.DiceLoss()
 
-# define metrics
+# Define metrics
 METRIC = [
     su.metrics.IoU(threshold=TH),
+    su.metrics.Fscore(threshold=TH),
+    su.metrics.Precision(threshold=TH),
+    su.metrics.Recall(threshold=TH),
 ]
 
 # Set device: `cuda` or `cpu`
