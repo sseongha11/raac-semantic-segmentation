@@ -93,6 +93,30 @@ def get_training_augmentation():
             ],
             p=0.75,
         ),
+        album.OneOf(
+            [
+                album.ElasticTransform(p=1),
+                album.GridDistortion(p=1),
+                album.OpticalDistortion(p=1),
+            ],
+            p=0.5,
+        ),
+        album.OneOf(
+            [
+                album.GaussNoise(p=1),
+                album.GaussianBlur(p=1),
+                album.MotionBlur(p=1),
+            ],
+            p=0.5,
+        ),
+        album.OneOf(
+            [
+                album.RandomBrightnessContrast(p=1),
+                album.HueSaturationValue(p=1),
+            ],
+            p=0.5,
+        ),
+        album.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=45, p=0.5),
     ]
     return album.Compose(train_transform)
 
@@ -111,15 +135,18 @@ def to_tensor(x, **kwargs):
 
 
 # Perform preprocessing
-def get_preprocessing(preprocessing_fn=None):
+def get_preprocessing(preprocessing_fn=None, model_name=None):
     """Construct preprocessing transform
     Args:
         preprocessing_fn (callable): data normalization function
             (can be specific for each pretrained neural network)
+        model_name (str): name of the model
     Return:
         transform: albumentations.Compose
     """
     _transform = []
+    if model_name == "transunet":
+        _transform.append(album.Resize(224, 224))  # Add this line to resize images only for TransUNet
     if preprocessing_fn:
         _transform.append(album.Lambda(image=preprocessing_fn))
     _transform.append(album.Lambda(image=to_tensor, mask=to_tensor))

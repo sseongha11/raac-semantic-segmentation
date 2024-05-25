@@ -28,10 +28,10 @@ Before the training, please download the dataset and copy it into the folder `da
 Then, you can train the model using the command:
 
 ```bash
-python train.py --model unet --output output/unet/
-# python train.py --model unet++ --output output/unetpp/
-# python train.py --model deeplabv3+ --output output/deeplabv3p/
-# python train.py --model fpn --output output/fpn/
+python train.py --models unet --output output/unet/
+# python train.py --models unet++ --output output/unetpp/
+# python train.py --models deeplabv3+ --output output/deeplabv3p/
+# python train.py --models fpn --output output/fpn/
 ```
 
 ## Inference
