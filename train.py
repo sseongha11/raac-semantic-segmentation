@@ -127,8 +127,8 @@ def main(args):
         valid_logs = valid_epoch.run(valid_loader)
         train_logs_list.append(train_logs)
         valid_logs_list.append(valid_logs)
-        file_name = f'model_epoch_{e}.pth'
-        torch.save(model, os.path.join(args["output"], file_name))
+        # file_name = f'model_epoch_{e}.pth'
+        # torch.save(model, os.path.join(args["output"], file_name))
 
         # Save models if a better val IoU score is obtained
         if best_iou_score < valid_logs['iou_score']:
