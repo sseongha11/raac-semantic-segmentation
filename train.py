@@ -15,6 +15,7 @@ import torch
 import argparse
 import segmentation_models_pytorch as smp
 import segmentation_models_pytorch.utils as su
+
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from raac import config
@@ -50,6 +51,7 @@ def main(args):
         "pspnet": smp.PSPNet,
         "pan": smp.PAN,
         "transunet": TransUNet,  # Add the TransUNet models here
+        "unet++sh": smp.UnetPlusPlusSH
     }
 
     # Create segmentation models with pretrained encoder
@@ -154,7 +156,7 @@ if __name__ == "__main__":
     # Construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-m", "--models", type=str, default="unet",
-                    choices=["unet", "unet++", "deeplabv3+", "fpn", "manet", "linknet", "pspnet", "pan", "transunet"],
+                    choices=["unet", "unet++", "deeplabv3+", "fpn", "manet", "linknet", "pspnet", "pan", "transunet", "unet++sh"],
                     help="name of segmentation models to train")
     ap.add_argument("-o", "--output", required=True, help="path to the output directory")
     args = vars(ap.parse_args())
