@@ -84,7 +84,7 @@ def colour_code_segmentation(image, label_values):
 # Perform data augmentation
 def get_training_augmentation():
     train_transform = [
-        album.RandomCrop(height=256, width=256, always_apply=True),
+        # album.RandomCrop(height=256, width=256, always_apply=True),
         album.OneOf(
             [
                 album.HorizontalFlip(p=1),
@@ -93,30 +93,30 @@ def get_training_augmentation():
             ],
             p=0.75,
         ),
-        album.OneOf(
-            [
-                album.ElasticTransform(p=1),
-                album.GridDistortion(p=1),
-                album.OpticalDistortion(p=1),
-            ],
-            p=0.5,
-        ),
-        album.OneOf(
-            [
-                album.GaussNoise(p=1),
-                album.GaussianBlur(p=1),
-                album.MotionBlur(p=1),
-            ],
-            p=0.5,
-        ),
+        # album.OneOf(
+        #     [
+        #         album.ElasticTransform(p=1),
+        #         album.GridDistortion(p=1),
+        #         album.OpticalDistortion(p=1),
+        #     ],
+        #     p=0.5,
+        # ),
+        # album.OneOf(
+        #     [
+        #         album.GaussNoise(p=1),
+        #         album.GaussianBlur(p=1),
+        #         album.MotionBlur(p=1),
+        #     ],
+        #     p=0.5,
+        # ),
         album.OneOf(
             [
                 album.RandomBrightnessContrast(p=1),
                 album.HueSaturationValue(p=1),
             ],
-            p=0.5,
+            p=0.75,
         ),
-        album.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=45, p=0.5),
+        # album.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=45, p=0.5),
     ]
     return album.Compose(train_transform)
 
